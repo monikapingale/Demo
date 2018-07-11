@@ -336,6 +336,5 @@ module EnziTestRailUtility
       @client.send_get("get_test/#{testId}")
     end
   end
-end
 
       
