@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+<selenese>
+	<command>open</command>
+	<target><![CDATA[https://wework--staging.cs96.my.salesforce.com/home/home.jsp?tsid=02uF0000000J3be]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>loadVars</command>
+	<target><![CDATA[lead.csv]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=tsidLabel]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[link=Sales Console]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//button[@id='ext-gen78']/div/span]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectFrame</command>
+	<target><![CDATA[index=2]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//input[@type='text']]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//input[@type='text']]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[//input[@type='text']]]></target>
+	<value><![CDATA[${Email}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=btnSearch]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//div[@id='page-content-wrapper']/div/div[2]/div/div/button/span]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=inputFirstName]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputFirstName]]></target>
+	<value><![CDATA[${FirstName}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=inputLastName]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputLastName]]></target>
+	<value><![CDATA[${LastName}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=inputPhone]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputPhone]]></target>
+	<value><![CDATA[${Phone}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=inputCompany]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputCompany]]></target>
+	<value><![CDATA[${Company}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=companySize]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=companySize]]></target>
+	<value><![CDATA[${Number_of_Full_Time_Employees__c}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=numberofDesks]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=numberofDesks]]></target>
+	<value><![CDATA[${Interested_in_Number_of_Desks__c}]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=sel1]]></target>
+	<value><![CDATA[label=${Lead_Source_Detail__c}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[name=autocomplete]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[name=autocomplete]]></target>
+	<value><![CDATA[${Building_Interested_In__c}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[link=${Building_Interested_In__c}]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(//button[@type='button'])[3]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+</TestCase>

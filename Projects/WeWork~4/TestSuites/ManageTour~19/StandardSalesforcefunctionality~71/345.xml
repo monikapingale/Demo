@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+	<selenese>
+		<command>open</command>
+		<target><![CDATA[https://wework--staging.cs96.my.salesforce.com/home/home.jsp]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>loadVars</command>
+		<target><![CDATA[lead.csv]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[link=Accounts]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[name=new]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[xpath=(//input[@name='save'])[2]]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=acc2]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=acc2]]></target>
+		<value><![CDATA[${Company}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[//div[@id='ep']/div/table/tbody/tr/td/h2]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=RecordType_ileinner]]></target>
+		<value><![CDATA[Consumer [Change]]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=lookup0051g000000tWpTacc1]]></target>
+		<value><![CDATA[Veena Hegane]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[name=save]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command></command>
+		<target><![CDATA[]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+</TestCase>

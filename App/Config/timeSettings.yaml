@@ -1,0 +1,16 @@
+Sleep:
+ Environment:
+  Classic:
+    Min: 0
+    Max: 5
+  Lightening:
+    Min: 1
+    Max: 5
+Wait:
+ Environment:
+  Classic: 
+    Min: 20
+    Max: 30
+  Lightening:
+    Min: 30
+    Max: 40
