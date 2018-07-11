@@ -95,6 +95,10 @@ begin
       puts " [Step   ]  : Login to Selected environment - #{env}"
       assert_not_nil(@helper.login(envCredential))
       puts " [Result ]  : SUCCESS" 
+        puts "::::::::::::::::::::::::::::::::::::::::::::::::::"
+        puts runsForEachProfile
+        puts "::::::::::::::::::::::::::::::::::::::::::::::::::"
+        
       runsForEachProfile.each_index do |index,hash2|
         puts " [Step   ]  : Execution Start for run_id :: #{runsForEachProfile[index]['run_id']}"
         puts " [Step   ]  : login as #{runsForEachProfile[index]['profile']['name']}" if index == 0
