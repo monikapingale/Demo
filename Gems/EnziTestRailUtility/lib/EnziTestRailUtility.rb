@@ -40,7 +40,7 @@ module EnziTestRailUtility
     end
 
     def createRuns(profile, runs)
-      puts "in create Runs
+      puts "in create Runs"
       runs1 = Marshal.load(Marshal.dump(runs))
       runs1.each do |run|
         run.store('profile', profile)
@@ -336,5 +336,5 @@ module EnziTestRailUtility
       @client.send_get("get_test/#{testId}")
     end
   end
-
+    end
       
