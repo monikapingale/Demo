@@ -57,6 +57,12 @@ begin
         runsForEachProfile.concat(testRailUtility.createRuns(profile, runs))
       end
     end
+    if !ENV['RUN_ID'].nil? then 
+      runsForEachProfile.each_index do |index,hash2|
+        runsForEachProfile[index].store('run_id',ENV['RUN_ID'])
+          #puts " [Step   ]  : Execution Start for run_id :: #{runsForEachProfile[index]['run_id']}"
+      end
+    end
     #runsForEachProfile  = [
                             #{"project_id"=>4, "suite_id"=>59, "section_id"=>[274], "case_id"=>[2174,7150], "run_id"=>2444, "profile"=>{"id"=>"00eF0000000aiceIAA", "name"=>"WeWork System Administrator"}}
                             #{"project_id"=>4, "suite_id"=>59, "section_id"=>[274], "case_id"=>[2174,7150], "run_id"=>2444, "profile"=>{"id"=>"00eF0000000b0MX", "name"=>"WeWork NMD User"}}, #have access
