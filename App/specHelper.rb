@@ -22,7 +22,7 @@ class Helper
   def alert_present?(driver)
     driver.switch_to.alert
     true
-  rescue Selenium::WebDriver::Error::NoAlertPresentError
+   rescue Selenium::WebDriver::Error::NoAlertPresentError
     false
   end
 
@@ -36,9 +36,13 @@ class Helper
 
   def postSuccessResult(caseId)
     puts "----------------------------------------------------------------------------------"
-    puts ""
-    @testRailUtility.postResult(caseId, "Pass", 1, @runId)
+    @testRailUtility.postResult(caseId, "Pass on #{@driver.browser}", 1, @runId)
     @passedLogs = @objRollbar.addLogs("[Result  ]  Success")
+    puts "----------------------------------------------------------------------------------"
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: postSuccessResult---> #{e}"
+    return nil    
   end
 
   def postFailResult(exception, caseId)
@@ -48,7 +52,12 @@ class Helper
     @passedLogs = @objRollbar.addLogs("#{exception}")
     @objRollbar.postRollbarData(caseInfo['id'], caseInfo['title'], @passedLogs[caseInfo['id'].to_s])
     Rollbar.error(exception)
-    @testRailUtility.postResult(caseId, "Result for case #{caseId} is #{@passedLogs[caseInfo['id'].to_s]}", 5, @runId)
+    @testRailUtility.postResult(caseId, "Result for case #{caseId} on #{@driver.browser}  is #{@passedLogs[caseInfo['id'].to_s]}", 5, @runId)
+    puts "----------------------------------------------------------------------------------"
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: postFailResult---> #{e}"
+    return nil 
   end
 
   def addLogs(logs, caseId = nil)
@@ -57,6 +66,10 @@ class Helper
     else
       @passedLogs = @objRollbar.addLogs(logs)
     end
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: addLogs---> #{e}"
+    return nil 
   end
 
   def getSalesforceRecord(sObject, query)
@@ -64,7 +77,7 @@ class Helper
     result = Salesforce.getRecords(@salesforceBulk, "#{sObject}", "#{query}", nil)
     #puts "#{sObject} created => #{result.result.records}"
     return result.result.records
-  rescue Exception => e
+   rescue Exception => e
     puts e
     puts "No record found111111"
     return nil
@@ -72,6 +85,10 @@ class Helper
 
   def createSalesforceRecord(objectType, records_to_insert)
     Salesforce.createRecords(@salesforceBulk, objectType, records_to_insert)
+    return true
+    rescue Exception => e
+    puts "Exception in Helper :: createSalesforceRecord---> #{e}"
+    return nil 
   end
 
   def getRestforceObj()
@@ -89,7 +106,7 @@ class Helper
     end
     #puts record[0].attrs['Id']
     return record
-  rescue Exception => e
+   rescue Exception => e
     puts e
     return nil
   end
@@ -100,7 +117,7 @@ class Helper
     puts "record deleted===> #{result}"
     puts result
     return true
-  rescue Exception => e
+    rescue Exception => e
     puts e
     return nil
   end
@@ -118,25 +135,6 @@ class Helper
           return element
           break
         end
-      end
-    end
-  end
-
-#Please provide exact app name displayed on app list
-  def go_to_app(driver, app_name)
-    @wait.until {driver.find_element(:id, "tsidButton")}
-    appButton = driver.find_elements(:id, "tsidButton")
-    addLogs("[Step ]   : Opening #{app_name} app")
-    if !appButton.empty?
-      driver.find_element(:id, "tsidButton").click
-      @wait.until {driver.find_element(:id, "tsid-menuItems")}
-      appsDrpDwn = driver.find_element(:id, "tsid-menuItems").find_elements(:link, app_name)
-      if !appsDrpDwn.empty?
-        appsDrpDwn[0].click
-        addLogs("[Result ] : #{app_name} app opened successfully")
-      else
-        driver.find_element(:id, "tsidButton").click
-        addLogs("[Result ] : Already on #{app_name}")
       end
     end
   end
@@ -191,7 +189,7 @@ class Helper
   end
 
   def createPushTopic(name, query)
-# Create a PushTopic for subscribing to record changes.
+    # Create a PushTopic for subscribing to record changes.
     client.upsert! 'PushTopic', {
         ApiVersion: '23.0',
         Name: name,
@@ -203,91 +201,159 @@ class Helper
   end
 
   def loadVars(target, value)
-    case File.extname(target)
-    when ".csv"
-      puts "Your test data is loading from csv file"
-      lines = CSV.open(File.expand_path('..', Dir.pwd) + "/TestData/#{target}", :encoding => "ISO-8859-1").readlines
-      keys = lines.delete lines.first
-      File.open('testData.json', 'a+') do |f|
-        data = lines.map do |values|
-          Hash[keys.zip(values)]
-        end
-        f.puts JSON.pretty_generate(data)
-        @testDataJSON[target.gsub('.csv', '')] = JSON.parse(JSON.pretty_generate(data))[0]
+    #puts "in loadVars"
+    lines = CSV.open(File.expand_path('..', Dir.pwd) + "/TestData/#{target}", :encoding => "ISO-8859-1", :liberal_parsing => true).readlines
+    keys = lines.delete lines.first
+    File.open('testData.json', 'a+') do |f|
+      data = lines.map do |values|
+        Hash[keys.zip(values)]
       end
-      @testDataJSON = @testDataJSON[target.gsub('.csv', '')]
-    when ".json"
-      puts "Your test data is loading from json file"
-      @testDataJSON = @testDataJSON[target.gsub('.json', '')] = JSON.parse(File.read('..',Dir.pwd+"/TestData/#{target}"))
-    else
-      puts "No valid testdata file found"
+      f.puts JSON.pretty_generate(data)
+      @testDataJSON[target.gsub('.csv', '')] = JSON.parse(JSON.pretty_generate(data))[0]
     end
+    @testDataJSON = @testDataJSON[target.gsub('.csv', '')]
+    #puts @testDataJSON
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: loadVars--> #{e}"
+    return nil
   end
 
   def find_element(target)
+    #puts "in find_element"      
     if target.include?('//') && !target.nil?
       @driver.current_url().include?("lightning") && target.include?("id=") && target.include?(":") ? target = target.gsub(target[target.index(":")..(target.index("]"))], ":')]").gsub('@id=', "starts-with(@id,") : target = target.gsub('xpath=', '')
       @wait.until {@driver.find_element(:xpath, "#{target}").displayed?}
-      @driver.find_element(:xpath, "#{target}")
+      return @driver.find_element(:xpath, "#{target}")
     else
       if @driver.current_url().include?("lightning") && target.include?("id=")
         element = target.split('=')
         @wait.until {@driver.find_element(:xpath, "//*[starts-with(@id, '#{element[1].split(':')[0]}')]").displayed?}
-        @driver.find_element(:xpath, "//*[starts-with(@id, '#{element[1].split(':')[0]}')]")
+        return @driver.find_element(:xpath, "//*[starts-with(@id, '#{element[1].split(':')[0]}')]")
       else
         element = target.split('=')
         @wait.until {@driver.find_element(element[0].to_sym, element[1]).displayed?}
-        @driver.find_element(element[0].to_sym, element[1])
+        return @driver.find_element(element[0].to_sym, element[1])
       end
     end
-  end
-
-  def open(target, value)
-    @driver.get target
+    rescue Exception => e
+    #puts "Exception in find_element::#{e}"
+    #raise e
   end
 
   def click(target, value)
+    retries ||= 0    
+    #puts "in click----with target:: #{target} ------:::::: #{retries}"
     target = "#{target.split('=')[0]}=#{@testDataJSON["#{target.split('=')[1].delete('${}')}"]}" if target.include?('$') && target.include?('{')
-    find_element(target).click
+    element = find_element(target)
+    #puts element.click.class
+    #puts element.displayed?
+    #puts element.enabled?
+    #@wait.until { element.displayed?}
+    #@wait.untill{ element.enabled? }
+    #puts "click on button"
+    sleep(2)
+    #@wait.until {@driver.find_elements(:xpath, "//*[contains(@id,'spinner')]")[0].displayed?}
+    element.click if !element.nil?
+    #puts "4454"
+    return true
+  rescue Exception => e
+    #puts "Exception in click :: #{e}"
+    retry if (retries += 1) < 3
+    #puts "returning nil----------------------"
+    return nil
   end
 
   def type(target, value)
+    #puts " in type---->with target:: #{target} and value:: #{value}"
     @testDataJSON["#{value.delete('${}')}"] = eval('"' + @testDataJSON.fetch("#{value.delete('${}')}") + '"') if @testDataJSON.has_key?("#{value.delete('${}')}")
     element = find_element(target)
-    element.clear
-    (value.include?('$') && value.include?('{')) ? element.send_keys(@testDataJSON["#{value.delete('${}')}"]) : element.send_keys("#{value.to_s}")
+    if !element.nil? then
+        element.clear 
+        (value.include?('$') && value.include?('{')) ? element.send_keys(@testDataJSON["#{value.delete('${}')}"]) : element.send_keys("#{value.to_s}")
+        return true
+    else
+      #puts "element not found...!!!"
+      return nil
+    end
+  rescue Exception => e
+    #puts "Exception in type :: #{e}"
+    return nil
   end
 
   def doubleClick(target, value)
     element = find_element(target)
     element.click
     element.click
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: doubleClick---> #{e}"
+    return nil 
   end
 
   def waitForElementPresent(target, value)
     find_element(target)
-  end
-
-  def selectFrame(target, value)
-    @driver.switch_to.default_content
-    puts "switching to frame"
-    @wait.until {@driver.find_elements(:tag_name, "iframe")[target.split('=')[1].to_i]}
-    EnziUIUtility.switchToFrame(@driver, @driver.find_elements(:tag_name, "iframe")[target.split('=')[1].to_i].attribute("name"))
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: waitForElementPresent---> #{e}"
+    return nil 
   end
 
   def select(target, value)
-    Selenium::WebDriver::Support::Select.new(find_element(target).select_by(:text, val[1]))
+    #puts "in select------->"
+    #puts "testData------>#{@testDataJSON}"
+    #retries ||= 0
+    val = value.split('=')
+      
+    val = "#{val[1].delete('${}')}"
+    valueToSelect = @testDataJSON["#{val}"]
+
+    if target.include?('//') && !target.nil? 
+      #puts "target--->#{target}"
+      #target1 = target.gsub(target[target.index(":")..(target.index("]"))], ":')]").gsub('@id=', "starts-with(@id,")
+      Selenium::WebDriver::Support::Select.new(@driver.find_element(:xpath, "#{target}")).select_by(:text, valueToSelect)
+      return true
+    else
+      #puts "in select -------with target::#{target} value::#{value}"
+      #Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "FollowUpAfter")).select_by(:text, "7 Days")
+      #puts @testDataJSON
+      #puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+      #puts val
+      #puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+      
+      #puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+
+      
+      #puts valueToSelect
+      #puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+      #puts @testDataJSON["LeadSource"]
+      Selenium::WebDriver::Support::Select.new(@driver.find_element(target.split('=')[0].to_sym,target.split('=')[1].to_s)).select_by(:text, valueToSelect)
+      return true
+    end
+    rescue Exception => e
+    #puts "Exception in Helper :: select----> #{e}"
+    #retry if (retries += 1) < 3
+    return nil
   end
 
   def selectWindow(target, value)
+    #puts "in select window"
     @driver.window_handles
-    puts @driver.window_handles
-    puts target[target.length - 1]
+    #puts @driver.window_handles
+    #puts target[target.length - 1]
     @driver.switch_to.window @driver.window_handles.last
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: selectWindow---->#{e}"
+    return nil
   end
 
   def openWindow(target, value)
     @driver.get target
+    return true
+    rescue Exception => e
+    #puts "Exception in Helper :: openWindow---> #{e}"
+    return nil 
   end
 
   def lightening_click_row(target, value)
@@ -298,13 +364,13 @@ class Helper
   def lightening_assert_form_element(target, value)
     xpath = "//span[./text()=#{target}]/../following-sibling::div/descendant::"
     @wait.until {@driver.find_element(:xpath, "#{xpath}a | #{xpath}input | #{xpath}span | #{xpath}select").displayed?}
-    puts @driver.find_element(:xpath, "#{xpath}a | #{xpath}input | #{xpath}span | #{xpath}select").text
+    #puts @driver.find_element(:xpath, "#{xpath}a | #{xpath}input | #{xpath}span | #{xpath}select").text
     assert_match(value, @driver.find_element(:xpath, "#{xpath}a | #{xpath}input | #{xpath}span | #{xpath}select").text)
   end
 
   def lightening_type(target, value)
     @testDataJSON["#{value.delete('${}')}"] = eval('"' + @testDataJSON.fetch("#{value.delete('${}')}") + '"') if @testDataJSON.has_key?("#{value.delete('${}')}")
-    puts @testDataJSON["#{value.delete('${}')}"]
+    #puts @testDataJSON["#{value.delete('${}')}"]
     target.include?('list') ? target = "//label[./text()= '#{target.split(':')[0]}']/../parent::div//input | //span[./text()= '#{target.split(':')[0]}']/../parent::div//input" : target = "//span[./text()= '#{target}']/../following-sibling::input"
     @wait.until {@driver.find_element(:xpath, target).displayed?}
     @driver.find_element(:xpath, target).clear
@@ -312,7 +378,7 @@ class Helper
   end
 
   def lightening_click(target, value)
-    puts target
+    #puts target
     target = target.split('id=')[1].split(':')[0] if (target.include?("id=") && target.include?(':'))
     @wait.until {@driver.find_element(:xpath, "//a[@title='#{target}'] | //button[@title='#{target}']| //*[starts-with(@id,'#{target}')] | //button/span[./text()='#{target}'] | //span[./text()= '#{target}']/../preceding-sibling::input").displayed?}
     @driver.find_element(:xpath, "//a[@title='#{target}'] | //button[@title='#{target}']| //*[starts-with(@id,'#{target}')] | //button/span[./text()='#{target}'] | //span[./text()= '#{target}']/../preceding-sibling::input").click
@@ -337,6 +403,7 @@ class Helper
   end
 
   def login(envCredential)
+    #puts "in login"
     pwd = EnziEncryptor.decrypt(JSON.parse(envCredential.fetch('parameters'))['password'], ENV['KEY'].chop.chop)
     #@driver.get 'https://test.salesforce.com/'
     @driver.get JSON.parse(envCredential.fetch('parameters'))['url']
@@ -347,34 +414,97 @@ class Helper
     @driver.find_element(:xpath, "//input[contains(@id,'password')]").send_keys pwd
     @driver.find_element(:xpath, "//input[contains(@type,'submit')] | //button[contains(@type,'submit')]").click
     @wait.until {@driver.execute_script("return document.readyState").eql? "complete"}
+    @wait.until {@driver.find_element(:xpath, "//*[@title='Search Salesforce'] | //*[@id='phSearchInput']").displayed?}
+    
+    #puts "switching to classic....."
+    #puts @driver.current_url()
+    EnziUIUtility.switchToClassic(@driver) if (@driver.current_url().include? "lightning")
+    @wait.until {@driver.execute_script("return document.readyState").eql? "complete"}
+    return true
+    rescue Exception => e 
+    #puts "Exception in Helper :: login -> #{e}"
+    return nil
   end
 
   def loginAsGivenProfile(profile)
+    #puts "in loginAsGivenProfile--------<o>"
+    EnziUIUtility.switchToClassic(@driver) if (@driver.current_url().include? "lightning")
+    
     newUrl = @driver.current_url().split('/')
+    #puts newUrl
     @driver.get "#{newUrl[0]}//#{newUrl[2]}/" + "005?id=" + "#{profile['id']}"
-    @wait.until {@driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[2]/td[1]/a[2]").displayed?}
-    @driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[2]/td[1]/a[2]").click
+
+    #puts "go to #{@driver.current_url()}"
+    @wait.until {@driver.execute_script("return document.readyState").eql? "complete"}
+    #sleep(20)
+    begin
+      element = @driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[2]/td[1]/a[2]")
+    rescue
+      #puts "element not found i 1st row"
+      element = @driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[3]/td[1]/a[2]")
+    end
+
+    #if element == nil then
+     # puts "852852"
+     # puts "element not found i 1st row"
+     # element = @driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[3]/td[1]/a[2]")
+    #end
+    @wait.until {element.displayed?}
+    element.click
+    ##@driver.find_element(:xpath, "//*[@id='ResetForm']/div[2]/table/tbody/tr[2]/td[1]/a[2]").click
+    #EnziUIUtility.switchToClassic(@driver)
+    #EnziUIUtility.switchToLightening(@driver)
+    @wait.until {@driver.execute_script("return document.readyState").eql? "complete"}
+    return true
+    rescue Exception => e 
+    #puts "Exception in Helper :: loginAsGivenProfile -> #{e}"
+    #raise  
+    return nil
   end
 
   def logOutGivenProfile()
+    #puts "in Helper :: logOutGivenProfile"
+    #puts @driver.current_url
+    url = @driver.current_url.split('force.com')[0].to_s
+    finalURL = url+"force.com/home/home.jsp"
+    #puts "finalURL--->#{finalURL}"
+
+    @driver.get finalURL
+    @wait.until {@driver.find_element(:xpath, "//*[@title='Search Salesforce'] | //*[@id='phSearchInput']").displayed?}
+    
     if !(@driver.current_url.include? 'lightning') then
+      #puts "lightning"
       @wait.until {@driver.find_element(:xpath, "//*[@id='userNav-arrow']").displayed?}
       @driver.find_element(:xpath, "//*[@id='userNav-arrow']").click
     end
     @wait.until {@driver.find_element(:xpath, "//a[@href='/secur/logout.jsp']").displayed?}
     @driver.find_element(:xpath, "//a[@href='/secur/logout.jsp']").click
+    return true
+    rescue Exception => e 
+    #puts "Exception in Helper :: logOutGivenProfile -> #{e}"
+    return nil
   end
 
   def echo(target, value)
     !value.nil? ? addLogs(target, value) : addLogs(target)
+    rescue Exception => e 
+    #puts "Exception in Helper :: echo -> #{e}"
+    nil
   end
 
   def store(target, value)
     target = value
+    rescue Exception => e 
+    #puts "Exception in Helper :: store -> #{e}"
+    nil
   end
 
   def pause(target, value)
-    sleep("#{value.to_i / 1000}")
+    sleep("#{value.to_i / 1000}.to_i")
+    true
+    rescue Exception => e 
+    #puts "Exception in Helper :: pause -> #{e}"
+    nil
   end
 
   def close_alert_and_get_its_text
@@ -390,6 +520,110 @@ class Helper
     @accept_next_alert = true
   end
 
+  def open(target, value)
+    #puts "in open ------<o>"
+    #puts "target------> #{target}"
+    #puts target.include? "lightning"
+    #puts !(@driver.current_url().include?("lightning"))
+    #puts "::::::::::::::::::"
+    #puts target.to_s.include?("lightning") && !(@driver.current_url().to_s.include?("lightning"))
+    #puts "::::::::::::::::::"
+
+    #puts (!(target.include? "lightning") && (@driver.current_url().include? "lightning"))
+    if (target.include?("lightning") && !(@driver.current_url().include? ("lightning"))) then
+      #puts "454545454454"
+      ##assert_not_nil(EnziUIUtility.switchToLightening(@driver),"error in switching to Lightning")
+    elsif (!target.include?("lightning") && (@driver.current_url().include? ("lightning"))) then
+      #puts "7878787878787"
+      ##assert_not_nil(EnziUIUtility.switchToClassic(@driver),'error in switching to Classic')
+    end
+    #(target.include? "lightning" && !(@driver.current_url().include? "lightning")) ? assert_not_nil(EnziUIUtility.switchToLightening(@driver),"error in switching to Lightning") : (assert_not_nil(EnziUIUtility.switchToClassic(@driver),'error in switching to Classic') if (!(target.include? "lightning") && (@driver.current_url().include? "lightning")))
+    url = @driver.current_url.split('force.com')[0].to_s+"force.com/"    
+    finalURL = url+target.split('force.com/')[1]
+
+    @driver.get finalURL
+    @wait.until {@driver.find_element(:xpath, "//*[@title='Search Salesforce'] | //*[@id='phSearchInput']").displayed?}
+    
+    #puts @driver.current_url()
+
+    #puts "link opened successfully"
+    true
+  rescue Exception => e 
+    #puts "Exception in Helper :: open -> #{e}"
+    nil
+  end
+
+  #Please provide exact app name displayed on app list
+  def go_to_app(driver, app_name)
+    #puts "in go to app----------------"
+    #puts "switching to classic if user is in lightning"
+    isLightning = driver.current_url().include? ("lightning")
+
+    if isLightning then
+      #puts "logged in user is in lightning------"
+      @wait.until {driver.find_element(:xpath, "//div[@class='slds-icon-waffle']")}
+      
+
+      url = @driver.current_url.split('force.com')[0].to_s
+      finalURL = url+"force.com/console?tsid=02uF00000011Ncb"
+      #puts "finalURL--->#{finalURL}"
+
+      @driver.get finalURL
+      @wait.until {@driver.find_element(:xpath, "//*[@title='Search Salesforce'] | //*[@id='phSearchInput']").displayed?}     
+
+    else
+        #EnziUIUtility.switchToClassic(@driver) if isLightning
+        @wait.until {driver.find_element(:id, "tsidButton")}
+        if driver.find_element(:id, "tsidLabel").text != app_name then
+          #appButton = driver.find_elements(:id, "tsidButton")
+          addLogs("[Step ]   : Opening #{app_name} app")
+          #puts "click on tsidButton"
+          driver.find_element(:id, "tsidButton").click
+          #puts "wait for tsid-menuItems"
+          @wait.until {driver.find_element(:id, "tsid-menuItems")}
+          #puts "get links from dropdown"
+          #sleep(10)
+          #puts "789"
+          #puts driver.find_element(:id, "tsid-menuItems")
+          #puts "4587"
+          elem = driver.find_element(:id, "tsid-menuItems")
+          #puts elem.attribute(:class)
+          #puts "**--->#{app_name}"
+          #puts "xpath------>//div[@id='tsid-menuItems']/a[.='#{app_name}']"
+          @wait.until {driver.find_element(:xpath, "//div[@id='tsid-menuItems']/a[.='#{app_name}']")}
+          
+          elemnt = driver.find_element(:xpath, "//div[@id='tsid-menuItems']/a[.='#{app_name}']")
+          #puts elemnt
+          #puts elemnt.text
+          #puts driver.find_element(:id, "tsid-menuItems").find_elements(:link, app_name).size
+          #puts "7869"
+          #puts driver.find_element(:id, "tsid-menuItems").find_element(:link, app_name).text
+          #puts "456"
+          #appsDrpDwn = driver.find_element(:id, "tsid-menuItems").find_elements(:link, app_name)
+          #puts "got all links"
+          #puts elemnt.size
+          #puts elemnt.nil?
+          if !elemnt.nil?
+            #puts "link found"
+            elemnt.click
+            addLogs("[Result ] : #{app_name} app opened successfully")
+          else
+            #puts "link not found---"
+            driver.find_element(:id, "tsidButton").click
+            addLogs("[Result ] : Logged in user dont have permsn to open ths app")
+            return nil
+          end
+        else
+          addLogs("[Result ] : Already on #{app_name}")
+        end
+  end
+    #EnziUIUtility.switchToLightening(driver) if isLightning
+    return true
+  rescue Exception => e 
+    #puts "Exception in Helper :: go_to_app -> #{e} !!!"
+    nil
+  end
+
   def validate_case(object,actual,expected)
     expected.keys.each do |key|
       if actual.key? key
@@ -403,10 +637,77 @@ class Helper
     end
   end
 
-  def assertText(target,value)
-    assert_match(@driver.find_element(target.split('=')[0].to_sym,target.split('=')[1]).text,value)
+  def followUp(target, value)
+    begin
+    #puts "in followUp------"
+    retries ||= 0
+    @driver.find_element(:link_text, 'Follow Up').click    
+    sleep(3)
+    #puts "wait for frame to load"
+    #@wait.until {!@driver.find_element(:id, "spinner").displayed?}
+    @wait.until {@driver.find_element(:xpath, "//iframe[@id='frame']").displayed?}
+
+    #@driver.wait_for_frame_to_load "frame", "30000"
+    #puts "switching to 'frame'"
+    @driver.switch_to.frame('frame')
+    begin
+    @wait.until {!@driver.find_element(:id, "spinner").displayed?}
+    rescue
+    end
+    !60.times{ break if (@driver.find_element(:id, "FollowUpAfter").displayed? rescue false); sleep 1 }
+    @driver.find_element(:id, "FollowUpAfter").click
+    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "FollowUpAfter")).select_by(:text, "1 Day")
+    #Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "FollowUpAfter")).select_by(:index, "0")
+    @driver.find_element(:id, "FollowUpAfter").click
+    @driver.find_element(:xpath, "//div[@id='lightning']/div[4]/div[3]/div[3]/div[2]/div/textarea").click
+    @driver.find_element(:xpath, "//div[@id='lightning']/div[4]/div[3]/div[3]/div[2]/div/textarea").clear
+    @driver.find_element(:xpath, "//div[@id='lightning']/div[4]/div[3]/div[3]/div[2]/div/textarea").send_keys "Follow up - test data"
+    @driver.find_element(:xpath, "//div[@id='lightning']/div[4]/div[4]/button").click
+    #puts "Follow up is done"
+    return true
+  rescue Exception => e
+    #puts "Exception in folllowUp----> #{e}"
+    retry if (retries += 1) < 3
+    #puts e.backtrace
+    return nil
   end
+  end
+
+  def moreAction(target, value)
+    #puts "in more Action"
+    #sleep(10)
+    EnziUIUtility.switchToWindow(@driver, @driver.current_url())
+    frameid = @driver.find_elements(:xpath, "//iframe[contains(@id, 'ext-comp-')]")[1].attribute('id')
+    #puts frameid
+    @driver.switch_to.frame(frameid)
+    @wait.until {!@driver.find_element(:id, "spinner").displayed?}
+    @driver.find_element(:id,'actionDropdown').click
+    return frameid
+
+    rescue Exception => e
+      #puts "Exception in moreAction---->#{e}"
+      return nil
+    
+  end
+
+  def selectFrame(target, value)
+    #puts "in selectFrame ---->with target:: #{target} and value:: #{value}"
+    @driver.switch_to.default_content
+    #puts "switching to frame"
+    @wait.until {@driver.find_elements(:tag_name, "iframe")[target.split('=')[1].to_i]}
+    #puts 'frame found'
+    
+    #@driver.switch_to.frame(4);
+    @driver.switch_to.frame("#{value}")
+    #puts 
+    #@driver.switch_to.frame("#{target.split('=')[1].to_i}");
+    #puts "545454"
+    #puts @driver.find_elements(:name, "iframe")[3].attribute("name")
+    #EnziUIUtility.switchToFrame(@driver, @driver.find_elements(:tag_name, "iframe")[target.split('=')[1].to_i].attribute("name"))
+    true
+    rescue Exception => e
+    #puts "Exception in Helper :: selectFrame -> #{e}"
+    nil
+  end
+
 end
-
-
-
