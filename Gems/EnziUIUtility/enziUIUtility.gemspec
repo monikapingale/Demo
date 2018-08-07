@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'enziUIUtility'
-  s.version     = '0.0.1'
+  s.version     = '0.1.0'
   s.date        = '2017-10-17'
   s.summary     = "UI component manupulation gem"
   s.description = "This gem is use to get and set values of UI components"

@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "EnziTestRailUtility/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "EnziTestRailUtility"
+  spec.name          = "enziTestRailUtility"
   spec.version       = EnziTestRailUtility::VERSION
   spec.authors       = ["Monika Pingale"]
   spec.email         = ["monika.pingale@enzigma.in"]

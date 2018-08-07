@@ -3,8 +3,8 @@ require_relative('testrail/api_client')
 module EnziTestRailUtility
   class TestRailUtility
 
-    def initialize(username, password)
-      @client = TestRail::APIClient.new('https://enzigma.testrail.io/')
+    def initialize(username, password,base_url)
+      @client = TestRail::APIClient.new(base_url)
       @client.user = username
       @client.password = password
 

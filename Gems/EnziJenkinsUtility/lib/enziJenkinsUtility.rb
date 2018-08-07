@@ -52,14 +52,3 @@ module EnziJenkinsUtility
     end
   end
 end
-=begin
-
-#puts j.createJob('n88899988',File.read("jenkins_job_config.xml")).inspect
-puts #j.buildJob('n333',{"PROJECT_ID" => 4, "SECTION_ID" => 22},{"build_start_timeout" => 1})
-
-puts  Nokogiri::XML::Document.parse(File.read("jenkins_job_config.xml")).to_s.gsub('*/5 * * * *' , '*/5 */5 * * *').gsub('%&gt;','')
-=end
-=begin
-j = EnziJenkinsUtility::JenkinsUtility.new('qa','9F*b)WX2tne(axcZ','http://enzqawin.eastus.cloudapp.azure.com:8080/')
-j.buildJob('n333',{"PROJECT_ID" => 4, "SECTION_ID" => 22},{"build_start_timeout" => 1})
-=end

@@ -61,18 +61,4 @@ class EnziEncryptor
   end
 
 end #end of class
-#str = '\xEC6\xB7\x9AL\xC1\x93\x9E\x0E\xE8\x8A\x0F\\\x9F2\x8C\x93Y\x7FH\ev\xE9|7\x8A\eq\xD3\xB5&\x87'
-=begin
-newStr = EnziEncryptor.encrypt("MyValue",str).to_s
-puts "UTF*======"
-puts newStr
-puts "ASCCIIII"
-encStr = newStr.force_encoding('ASCII-8BIT').encode('ASCII-8BIT')
-puts encStr
-EnziEncryptor.decrypt(encStr,str)
-puts EnziEncryptor.decrypt(EnziEncryptor.encrypt('postgres://yjdxfiwamhnvtj:983b2b1792de9439f4ba133618903170b9364855fdbf868de89e524b465bfecd@ec2-54-243-137-182.compute-1.amazonaws.com:5432/d74mgl2e7s64ph','JUUulOQoqK6saOOfnDlKx1YpKdG8sAdIPwqcPuZo/dI='),'JUUulOQoqK6saOOfnDlKx1YpKdG8sAdIPwqcPuZo/dI=').eql? "postgres://yjdxfiwamhnvtj:983b2b1792de9439f4ba133618903170b9364855fdbf868de89e524b465bfecd@ec2-54-243-137-182.compute-1.amazonaws.com:5432/d74mgl2e7s64ph"
-=end
-
-#puts '\xEC6\xB7\x9AL\xC1\x93\x9E\x0E\xE8\x8A\x0F\\\x9F2\x8C\x93Y\x7FH\ev\xE9|7\x8A\eq\xD3\xB5&\x87'.codepoints.pack('U*')
-#puts []
 
