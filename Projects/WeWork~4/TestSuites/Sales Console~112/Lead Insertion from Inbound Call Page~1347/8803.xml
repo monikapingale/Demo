@@ -125,11 +125,11 @@
 	<target><![CDATA[Checking Assertion of Journey Fields]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
-<selenese>
+<!-- <selenese>
 	<command>assertText</command>
 	<target><![CDATA[id=Primary_Email__c]]></target>
 	<value><![CDATA[${Lead_Email}]]></value>
-</selenese>
+</selenese> --> 
 <selenese>
 	<command>assertText</command>
 	<target><![CDATA[id=Lead_Source__c]]></target>
@@ -170,9 +170,9 @@
 	<target><![CDATA[id=Name]]></target>
 	<value><![CDATA[${Lead_First Name}+ +${Lead_Last Name}+-+${Lead_City}+-+${Lead_Lead source}]]></value>
 </selenese>
-<selenese>
+<!-- <selenese>
 	<command>assertText</command>
 	<target><![CDATA[id=Status__c]]></target>
 	<value><![CDATA[${Lead_Journey_Status}]]></value>
-</selenese>
+</selenese> -->
 </TestCase>

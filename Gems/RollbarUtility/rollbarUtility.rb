@@ -29,20 +29,25 @@ class RollbarUtility
 		Rollbar.configure do |config| 
         	config.custom_data_method = lambda { { :Id => id, :Title => title, :PassExpects => passedExpects}}
       	end
+      rescue Exception => e
+      	puts "Exception in RollbarUtility :: postRollbarData -> #{e}"
+      	nil
 	end
 
 	def addLogs(logMessage, specId = nil)
-	    puts logMessage
-	    
+	    puts logMessage    
 	    if specId != nil
 	      @@sId = specId
-	      @@logHash = Hash.new()
+	      #@@logHash = Hash.new()
 	      @@logHash.store(specId, logMessage)
 	    else
 	      #puts "Inside else: #{@@logHash}"
 	      @@logHash[@@sId] = "#{@@logHash[@@sId]}\n#{logMessage}"
 	    end
-	    #puts @@logHash
+	    #puts @@logHash	    
 	    return @@logHash
+	rescue Exception =>e
+		puts "Exception in RollbarUtility :: addLogs -> #{e}"
+		nil
   	end
 end

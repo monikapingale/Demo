@@ -83,7 +83,7 @@ class EnziUIUtility
   end
    #Use:This function is use to switch driver control from main window to Availability browser window
   def self.switchToWindow(driver,titleName)
-    self.wait(driver,nil,nil,5)
+    #self.wait(driver,nil,nil,5)
     #Get all currnt open window
     allWindows = driver.window_handles
         #Find any new window open
@@ -96,7 +96,7 @@ class EnziUIUtility
             end
          # end #End of @@mainWindow if
         end #end of forEach for allWindows
-    self.wait(driver,nil,nil,5)
+    #self.wait(driver,nil,nil,5)
   end
 
 
@@ -132,7 +132,12 @@ class EnziUIUtility
 
  #Use: Switch element between frames
   def self.switchToFrame(driver,frameName)
+    puts "in EnziUIUtility :: switchToFrame with frameName::#{frameName}"
     driver.switch_to.frame(frameName)
+    puts "7878"
+    rescue Exception => e
+    puts "Exception in EnziUIUtility :: switchToFrame -> #{e} !!!"
+    raise
   end
 
   #Use: This function is use to switch to frame if it's name not known.
@@ -173,29 +178,62 @@ class EnziUIUtility
     end
     return false
   end
+
+
   #Use: This function is Used to switching to lightening from classic
   def self.switchToLightening(driver)
+    #puts "in switch to lightning"
+    self.wait(driver,:xpath,"//*[@title='Search Salesforce'] | //*[@id='phSearchInput']",60)
     if !(driver.current_url().include? "lightning")
       #puts "String not 'lightning'"
+      self.wait(driver,:id,"userNav-arrow",30)
       driver.find_element(:id, "userNav-arrow").click
+      self.wait(driver,:link,"Switch to Lightning Experience",30)
+
       driver.find_element(:link , "Switch to Lightning Experience").click
     else
+      puts "u r already in lightning ha ha ha ------>>"
     end
+    true
+  rescue Exception => e 
+    puts "Exception in EnziUIUtility :: switchToLightening -> #{e} !!!"
+    nil
   end
 
   #Use: This function is Used to switching to classic from lightening
   def self.switchToClassic(driver)
+    puts 'in switchToClassic'
+    self.wait(driver,:xpath,"//*[@title='Search Salesforce'] | //*[@id='phSearchInput']",60)
+    #puts driver.current_url()
     if (driver.current_url().include? "lightning")
       switchToWindow(driver,driver.current_url)
-      self.wait(driver,:class,"oneUserProfileCardTrigger",10)
+      #puts "1"
+      self.wait(driver,:class,"oneUserProfileCardTrigger",30)
       #puts "String 'lightning'"
+      #puts "2"
+      #sleep(5)
       driver.find_element(:class, "oneUserProfileCardTrigger").click
-      driver.find_element(:class, "oneUserProfileCardTrigger").click
-      self.wait(driver,:class,"oneUserProfileCardTrigger",10)
+      #puts "3"
+      #driver.find_element(:class, "oneUserProfileCardTrigger").click
+      #puts "4"
+      #sleep(3)
+      self.wait(driver,:class,"oneUserProfileCardTrigger",30)
+      #puts "5"
+      #sleep(3)
+      self.wait(driver,:link,"Switch to Salesforce Classic",30)
+      
       driver.find_element(:link , "Switch to Salesforce Classic").click
+      puts "6"
     else
+      puts "you are allready in classic"
     end
+    puts "7"
+    return true
+  rescue Exception => e 
+    puts "Exception in EnziUIUtility :: switchToClassic -> #{e} !!!"
+    nil
   end
+
   def self.loginForUser(driver,profile_name)
    
     tBodyEle = driver.find_element(:class,"list").find_element(:tag_name,'tbody')

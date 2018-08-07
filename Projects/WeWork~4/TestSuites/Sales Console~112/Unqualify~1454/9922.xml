@@ -12,7 +12,7 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[//button[.='Lead/Contact Search']/div/span]]></target>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Availability'])[1]/following::span[1]]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -22,12 +22,12 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[//input[@type='text']]]></target>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[//input[@type='text']]]></target>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
 	<value><![CDATA[${Lead_Email}]]></value>
 </selenese>
 <selenese>
@@ -37,7 +37,7 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[//div[@id='page-content-wrapper']/div/div[2]/div/div/button/span]]></target>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/following::span[1]]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -107,7 +107,12 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(//button[@type='button'])[3]]]></target>
+	<target><![CDATA[link=MUM-BKC]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='No records found.'])[1]/following::button[1]]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -117,62 +122,47 @@
 </selenese>
 <selenese>
 	<command>selectFrame</command>
-	<target><![CDATA[index=3]]></target>
+	<target><![CDATA[relative=parent]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>echo</command>
-	<target><![CDATA[Checking Assertion of Journey Fields]]></target>
+	<command>selectFrame</command>
+	<target><![CDATA[index=6]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Primary_Email__c]]></target>
-	<value><![CDATA[${Lead_Email}]]></value>
+	<command>click</command>
+	<target><![CDATA[css=svg.slds-icon.slds-icon-text-default.slds-icon_x-small > use]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Lead_Source__c]]></target>
-	<value><![CDATA[${Lead_Lead source}]]></value>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Follow Up'])[1]/following::span[1]]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[//*[@id="Lead_Source_Detail__c"]]]></target>
-	<value><![CDATA[${Lead_Lead source detail}]]></value>
+	<command>selectFrame</command>
+	<target><![CDATA[index=1]]></target>
+	<value><![CDATA[frame]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Primary_Phone__c]]></target>
-	<value><![CDATA[${Lead_Phone}]]></value>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::select[1]]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Company_Name__c]]></target>
-	<value><![CDATA[${Lead_Company}]]></value>
+	<command>select</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::select[1]]]></target>
+	<value><![CDATA[label=Fake Lead]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[link=MUM-BKC]]></target>
-	<value><![CDATA[${Lead_Locations interested}]]></value>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::select[1]]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Looking_For_Number_Of_Desk__c]]></target>
-	<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
-</selenese>
-<!-- <selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Full_Time_Employees__c]]></target>
-	<value><![CDATA[${Lead_Number of Full Time Employees }]]></value>
-</selenese> -->
-<selenese>
-	<command>verifyValue</command>
-	<target><![CDATA[id=Name]]></target>
-	<value><![CDATA[${Lead_First Name}+ +${Lead_Last Name}+-+${Lead_City}+-+${Lead_Lead source}]]></value>
-</selenese>
-<selenese>
-	<command>assertText</command>
-	<target><![CDATA[id=Status__c]]></target>
-	<value><![CDATA[${Lead_Journey_Status}]]></value>
+	<command>click</command>
+	<target><![CDATA[id=reason-save]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 </TestCase>

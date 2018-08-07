@@ -1,2 +1,0 @@
-Lead_First Name,Lead_Last Name,Lead_Email,Lead_Phone,Lead_Company,Lead_Number of Full Time Employees ,Lead_Interested in Number of Desk(s),Lead_Market,Lead_Lead source,Lead_Lead source detail,Lead_Country code,Lead_Locations interested,Lead_Status,Lead_City,Lead_Journey_Status
-john,smith,john.smith_qaauto#{rand(999999999999)}@example.com ,1234567890,Walstreet,12,8,Mumbai,Inbound Call,Inbound Call Page,IN,MUM-BKC,open,Mumbai,Started

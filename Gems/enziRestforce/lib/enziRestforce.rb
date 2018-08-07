@@ -224,3 +224,93 @@ class EnziRestforce
 end
 
 
+#obj = EnziRestforce.new('monika.pingale@wework.com.qaauto','monikaPingale@123','3MVG9PE4xB9wtoY9IbhNtYSuAVOegE_yR6h8s4fwIITYduuN1V8Tt84iUykgOM_X3lj7md_cCbNBlsN6D6LSc','3006740022073476903',true)
+
+=begin
+puts "1"
+records_to_insert = Hash.new
+records_to_insert.store('Name','Kishor_shinde')
+#records = Array.new
+#records.push(records_to_insert)
+createdRecords = EnziRestforce.createRecords(@client,'Account',records_to_insert)
+puts createdRecords
+=end
+#puts "2"
+=begin
+array = obj.getRecords("SELECT id,Looking_For_Number_Of_Desk__c,Name,Owner.Id,Owner.Name,RecordType.Name,RecordType.Id,Number_of_Full_Time_Employees__c FROM Contact limit 10")# where Id  = '00Q3D000003QtiAUAS'")
+puts array[0].attrs
+puts array[0].('RecordType')
+puts array[0].'RecordType')['Name']
+puts "121211"
+puts array[0].fetch('RecordType.Name')
+#puts array.class
+#puts array[0].class
+#puts array[1].class
+#puts "################"
+=end
+
+
+=begin
+recordMap = Hash.new
+recordMap.store('Name','Kishor12345678987456123')
+recordMap.store('Name1','Kishor12345678987456124')
+ar = Array.new
+ar= {"1":{"Name":"Kishor1"},"2":{"Name":"Kishor2"}}
+=end
+
+#EnziRestforce.createRecords(@client,'Account',ar)
+
+
+#puts EnziRestforce.updateRecord(@client,'Account',recordMap)
+#puts EnziRestforce.deleteRecords(@client,'Account','0013D00000T6PnRQAV')
+
+
+
+=begin
+puts array.inspect
+puts "################"
+puts array[0]
+puts "################"
+puts array[0].fetch('Id')
+puts array.size
+#puts @client.limits
+=end
+
+
+
+#puts "hiiiiiii"
+
+# Find all occurrences of 'bar'
+#srch = @client.search('FIND {bar}')
+#puts srch
+#puts "hhjhjhj"
+#puts srch.to_a[0]
+# => #<Restforce::Collection >
+=begin
+# Find accounts matching the term 'genepoint' and return the `Name` field
+srch2 = @client.search('FIND {Kishor_shinde} RETURNING Account (Name,Id)')
+puts "12121212"
+puts srch2
+puts "232323232"
+puts srch2.to_a[0]
+puts "4545454"
+puts srch2.to_a[0][1]
+puts "457887877878"
+puts srch2.to_a[0][1].size
+puts srch2.to_a[0][1][0].attrs
+puts srch2.to_a[0][1][0].attrs['Id']
+# => ['GenePoint']
+=end
+
+
+
+# Get the global describe for all sobjects
+#puts "jjjjjj"
+#puts @client.describe
+# => { ... }
+
+# Get the describe for the Account object
+#puts @client.describe_layouts('Account')
+# => { ... }
+
+

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+<selenese>
+<command>loadVars</command>
+<target><![CDATA[Lead.csv]]></target>
+<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>open</command>
+	<target><![CDATA[https://wework--qaauto.cs63.my.salesforce.com/console?tsid=02uF00000011Ncb]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Availability'])[1]/following::span[1]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectFrame</command>
+	<target><![CDATA[index=2]]></target>
+	<value><![CDATA[scc_widget_Inbound_Call]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
+	<value><![CDATA[${Lead_Email]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=btnSearch]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/following::span[1]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=inputFirstName]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputFirstName]]></target>
+	<value><![CDATA[${Lead_First Name}]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputLastName]]></target>
+	<value><![CDATA[${Lead_Last Name}]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputPhone]]></target>
+	<value><![CDATA[${Lead_Phone}]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=inputCompany]]></target>
+	<value><![CDATA[${Lead_Company}]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=companySize]]></target>
+	<value><![CDATA[${Lead_Number of Full Time Employees }]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=numberofDesks]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=numberofDesks]]></target>
+	<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=sel1]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=sel1]]></target>
+	<value><![CDATA[label=${Lead_Lead source}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=sel1]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[name=autocomplete]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[name=autocomplete]]></target>
+	<value><![CDATA[${Lead_Locations interested}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[link=MUM-BKC]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='No records found.'])[1]/following::button[1]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[link=Open]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectFrame</command>
+	<target><![CDATA[relative=parent]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectFrame</command>
+	<target><![CDATA[index=6]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=saction:0]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Status__c]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=Status__c]]></target>
+	<value><![CDATA[label=Completed]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Status__c]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::button[1]]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+</TestCase>
