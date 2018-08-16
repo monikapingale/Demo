@@ -216,7 +216,10 @@ begin
     end
 
     runsForEachProfile = [
-                            {"project_id"=>4, "suite_id"=>112, "section_id"=>[1345], "case_id"=>[8805,7150], "run_id"=>2501, "profile"=>{"id"=>"00eF0000000b0MX", "name"=>"WeWork NMD User"}}
+                            #{"project_id"=>4, "suite_id"=>112, "section_id"=>[1345], "case_id"=>[8805,7150], "run_id"=>2501, "profile"=>{"id"=>"00eF0000000b0MX", "name"=>"WeWork NMD User"}},
+                            {"project_id"=>4, "suite_id"=>112, "section_id"=>[1347], "case_id"=>[8803,7150], "run_id"=>2501, "profile"=>{"id"=>"00eF0000000b0MX", "name"=>"WeWork NMD User"}},
+                            {"project_id"=>4, "suite_id"=>112, "section_id"=>[1380], "case_id"=>[8884,7150], "run_id"=>2501, "profile"=>{"id"=>"00eF0000000b0MX", "name"=>"WeWork NMD User"}}
+
 
                             #{"project_id"=>4, "suite_id"=>22, "section_id"=>[20], "case_id"=>[105, 106, 107, 108, 40, 110, 111, 112, 113, 114, 116, 117, 118, 53, 155, 170, 103, 104], "profile"=>{"id"=>"00eF0000000aiceIAA", "name"=>"WeWork System Administrator"}, "run_id"=>2490}, 
                             #{"project_id"=>4, "suite_id"=>22, "section_id"=>[20], "case_id"=>[105, 106, 107, 108, 40, 110, 111, 112, 113, 114, 116, 117, 118, 53, 155, 170, 103, 104], "profile"=>{"id"=>"00eF0000000aiceIAA", "name"=>"WeWork System Administrator"}, "run_id"=>2490}, 

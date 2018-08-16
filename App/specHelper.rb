@@ -987,7 +987,7 @@ class Helper
   def generateLogs(caseId)
     puts "in genenrate logs caseId--->#{caseId}"# if @isDevelopment
     if caseId.include? ':' then
-        puts "fail result for record" if @isDevelopment
+        puts "fail result for record" #if @isDevelopment
 
         caseInfo = @testRailUtility.getCase(caseId.split(':')[0].delete('C'))
         @passedLogs[caseId].prepend(@passedLogs["C#{caseInfo['id'].to_s}"]) if (!(@runId.nil?) && !(ENV['TEMPLATE_ID'].nil?) && !(caseInfo['id'].nil?))
@@ -1003,6 +1003,11 @@ class Helper
         @passedLogs[@runId.to_i].prepend(@passedLogs[ENV['TEMPLATE_ID']]) if (!(@runId.nil?) && !(ENV['TEMPLATE_ID'].nil?))
         caseInfo  = nil
     end
+
+    puts "TTTTTTTTTTTttttttttttttttttttttt"
+    puts @passedLogs
+    puts "TTTTTTTTTTTttttttttttttttttttttt"
+
     return caseInfo
     rescue Exception => e
       puts "exception in generateLogs---> #{e} #{e.backtrace}" #if @isDevelopment
@@ -1020,7 +1025,12 @@ class Helper
       cId = caseId.split(':')[0].delete('C')
     elsif 
       cId = caseId.delete('C')
-    end        
+    end  
+
+puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+puts @passedLogs
+puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+
     @testRailUtility.postResult(cId, "Logs --> #{@passedLogs[caseId]}", 1, @runId)
     addLogs("[Result   ] : Success")
     true
@@ -1107,7 +1117,7 @@ class Helper
 
   def find_element(target)
     puts "in find_element--->target::#{target}"  if @isDevelopment      
-    if target.include?('//') && target.include?(":") && !target.include?("::") && !target.nil?
+    if target.include?('//') && target.include?(":") && !target.include?("::") && !target.nil? 
       puts "finding element xpath contains :" if @isDevelopment
       if @driver.current_url().include?("lightning") && target.include?("id=")
         puts "in lightning--->" if @isDevelopment
@@ -1131,7 +1141,7 @@ class Helper
         puts "done" if @isDevelopment
         return @driver.find_element(:xpath, "#{target}")
       end
-      if target.include?("id=") && target.include?(":")
+      if target.include?("id=") && target.include?(":") && false
         puts "containing id= and :" if @isDevelopment
         element = target.split('=')
         # puts "element found"
@@ -1205,6 +1215,7 @@ class Helper
       # puts element.tag_name
       # puts element.text
       # puts element.attribute('value')
+      
       addLogs("[Step     ] : Click on #{element.text}")  if (element.tag_name != 'select' && element.tag_name != 'svg' && element.tag_name != 'input')
       # puts element.tag_name
     rescue Exception => ex
@@ -1566,8 +1577,9 @@ class Helper
   end
 
   def echo(target, value)
-    puts "in echo--->target::#{target} value::#{value}" if @isDevelopment  
-    !value.nil? ? addLogs(target, value) : addLogs(target)
+    puts "in echo--->target::#{target} value::#{value}" if @isDevelopment 
+    puts !value.nil? 
+    (!value.nil? && value != '') ? addLogs(target, value) : addLogs(target)
     rescue Exception => e 
       addLogs("[Result   ] : Failed")
     puts "Exception in Helper :: echo -> #{e}" if @isDevelopment
@@ -1751,7 +1763,7 @@ class Helper
 
   def find_elements(target)
     puts "in find_elements--->target::#{target}"  #if @isDevelopment      
-    if target.include?('//') && target.include?(":") && !target.nil?
+    if target.include?('//') && target.include?(":") && !target.nil? && !target.include?("::")
       puts "finding element xpath contains :" 
       if @driver.current_url().include?("lightning") && target.include?("id=")
         puts "in lightning--->" #if @isDevelopment
@@ -1830,20 +1842,32 @@ class Helper
     #key_column.split('${')
     #expectedValue = @testDataJSON[key_column.delete('${}').split('_')[0]][@index].fetch(key_column.delete('${}'))
     element = find_elements(target)    
-    #puts element.length
-    element.last.tag_name == 'a' ? actualValue = element.last.text : actualValue = element.last.attribute('value') if element.length > 1
-    element.first.tag_name == 'a' ? actualValue = element.first.text : actualValue = element.first.attribute('value') if element.length == 1
+    puts "*****************length****************************"
+    puts element.length
+    # puts "******************value****************************"
+    # puts element.first.attribute('value')
+    # puts "******************text****************************"
+    # puts element.first.text
+    # puts element.first.tag_name
+
+    # puts "**********************************************"
+    ((element.last.tag_name == 'a') | (element.last.tag_name == 'span')) ? actualValue = element.last.text : actualValue = element.last.attribute('value') if element.length > 1
+    ((element.first.tag_name == 'a') | (element.first.tag_name == 'span')) ? actualValue = element.first.text : actualValue = element.first.attribute('value') if element.length == 1
 
     addLogs("[Step     ] : Check #{key_column.delete('${}').split('_')[1]}")
     addLogs("[Expected ] : #{expectedValue}")
     addLogs("[Actual   ] : #{actualValue}")
     assert_match(actualValue,expectedValue)
     addLogs("[Result   ] : Success")
+    puts "--------------********************-------------------"
+    puts @passedLogs
+    puts "--------------********************-------------------"
+
     return true
 
     rescue Exception => e 
     addLogs("[Result   ] : Failed") 
-    puts "Exception in Helper :: assertText -> #{e}" if @isDevelopment
+    puts "Exception in Helper :: assertText -> #{e} #{e.backtrace}" if @isDevelopment
     return nil
   end
 

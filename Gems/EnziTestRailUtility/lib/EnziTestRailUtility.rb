@@ -211,7 +211,10 @@ module EnziTestRailUtility
     #3  Untested (not allowed when adding a result)
     #4  Retest
     #5  Failed
-    def postResult(caseId, comment, statusId, testRunId)
+    def postResult(caseId, comment, statusId, testRunId)\
+      puts "***************************************"
+      puts comment
+      puts "***************************************"
       url = "add_result_for_case/#{testRunId}/#{caseId}"
       @client.send_post(url, {:status_id => statusId, :comment => "#{comment}"})
     end

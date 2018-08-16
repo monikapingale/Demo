@@ -6,10 +6,9 @@
 <target><![CDATA[Lead.csv]]></target>
 <value><![CDATA[]]></value>
 </selenese>
-
 <selenese>
 	<command>open</command>
-	<target><![CDATA[https://wework--qaauto.cs63.my.salesforce.com/console?tsid=02uF00000011Ncb]]></target>
+	<target><![CDATA[https://wework--qaauto.cs30.my.salesforce.com/console?tsid=02uF00000011Ncb]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -24,77 +23,97 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
+	<target><![CDATA[id=Search:input]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
-	<value><![CDATA[${Lead_Email}]]></value>
+	<target><![CDATA[id=Search:input]]></target>
+	<value><![CDATA[${Lead_Email]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=btnSearch]]></target>
+	<target><![CDATA[id=InboundCall:Search]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/following::span[1]]]></target>
+	<target><![CDATA[id=InboundCall:NewLead:caption]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=inputFirstName]]></target>
+	<target><![CDATA[id=FirstName:text]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[id=inputFirstName]]></target>
+	<target><![CDATA[id=FirstName:text]]></target>
 	<value><![CDATA[${Lead_First Name}]]></value>
 </selenese>
 <selenese>
+	<command>click</command>
+	<target><![CDATA[id=LastName:text]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
 	<command>type</command>
-	<target><![CDATA[id=inputLastName]]></target>
+	<target><![CDATA[id=LastName:text]]></target>
 	<value><![CDATA[${Lead_Last Name}]]></value>
 </selenese>
 <selenese>
+	<command>click</command>
+	<target><![CDATA[id=Phone:text]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
 	<command>type</command>
-	<target><![CDATA[id=inputPhone]]></target>
+	<target><![CDATA[id=Phone:text]]></target>
 	<value><![CDATA[${Lead_Phone}]]></value>
 </selenese>
 <selenese>
-	<command>type</command>
-	<target><![CDATA[id=inputCompany]]></target>
-	<value><![CDATA[${Lead_Company}]]></value>
+	<command>click</command>
+	<target><![CDATA[id=Company:text]]></target>
+	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[id=companySize]]></target>
+	<target><![CDATA[id=Company:text]]></target>
+	<value><![CDATA[${Lead_Company}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=CompanySize:number]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=CompanySize:number]]></target>
 	<value><![CDATA[${Lead_Number of Full Time Employees }]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=numberofDesks]]></target>
+	<target><![CDATA[id=NumberOfDesks:number]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[id=numberofDesks]]></target>
+	<target><![CDATA[id=NumberOfDesks:number]]></target>
 	<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=sel1]]></target>
+	<target><![CDATA[id=LeadSource:select]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>select</command>
-	<target><![CDATA[id=sel1]]></target>
+	<target><![CDATA[id=LeadSource:select]]></target>
 	<value><![CDATA[label=${Lead_Lead source}]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=sel1]]></target>
+	<target><![CDATA[id=LeadSource:select]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -109,17 +128,17 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[link=MUM-BKC]]></target>
+	<target><![CDATA[link=${Lead_Locations interested}]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
-<selenese>
+ <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='No records found.'])[1]/following::button[1]]]></target>
+	<target><![CDATA[id=CreateNewLead:Save]]></target>
 	<value><![CDATA[]]></value>
-</selenese>
+</selenese> 
 <selenese>
 	<command>click</command>
-	<target><![CDATA[link=Open]]></target>
+	<target><![CDATA[id=LeadContactSearch:Open]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -132,14 +151,19 @@
 	<target><![CDATA[index=6]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
+<!-- <selenese>
+	<command>pause</command>
+	<target><![CDATA[]]></target>
+	<value><![CDATA[20]]></value>
+</selenese> -->
 <selenese>
 	<command>click</command>
-	<target><![CDATA[css=svg.slds-icon.slds-icon-text-default.slds-icon_x-small]]></target>
+	<target><![CDATA[id=More_Actions]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Manage/Book a Tour'])[1]/following::span[1]]]></target>
+	<target><![CDATA[id=Follow Up]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
@@ -149,32 +173,37 @@
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=FollowUpAfter]]></target>
+	<target><![CDATA[id=FollowUpAfter:picklist]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>select</command>
-	<target><![CDATA[id=FollowUpAfter]]></target>
+	<target><![CDATA[id=FollowUpAfter:picklist]]></target>
 	<value><![CDATA[label=3 Days]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[id=FollowUpAfter]]></target>
+	<target><![CDATA[id=FollowUpAfter:picklist]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loading'])[8]/following::textarea[1]]]></target>
+	<target><![CDATA[id=comments:textarea]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 <selenese>
 	<command>type</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loading'])[8]/following::textarea[1]]]></target>
+	<target><![CDATA[id=comments:textarea]]></target>
 	<value><![CDATA[Test Data]]></value>
 </selenese>
 <selenese>
 	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Field Not Available'])[3]/following::button[1]]]></target>
+	<target><![CDATA[id=JourneyFollowUp:Save]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectFrame</command>
+	<target><![CDATA[relative=parent]]></target>
 	<value><![CDATA[]]></value>
 </selenese>
 </TestCase>

@@ -214,6 +214,9 @@ class ExecuteXml
               begin
                   helper.addLogs("\n[Step     ] : Execution starts for case id ::C#{filePath.split('/')[-1].split('.')[0]} : Record -#{rowNumber.to_s}","C#{filePath.split('/')[-1].split('.')[0]+': Record -'+rowNumber.to_s}")#+':'+helper.instance_variable_get(:@index).to_s}")
                   caseHash['TestCase']['selenese'].each_with_index do |command,index|
+                   
+
+
                     #puts "#{command}"
                     if command['command'].eql?("loadVars")
                       next;
