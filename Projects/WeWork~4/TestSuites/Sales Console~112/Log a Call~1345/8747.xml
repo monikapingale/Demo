@@ -1,169 +1,253 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCase>
-
-<selenese>
-<command>loadVars</command>
-<target><![CDATA[Lead.csv]]></target>
-<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>open</command>
-	<target><![CDATA[https://wework--qaauto.cs63.my.salesforce.com/console]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Availability'])[1]/following::span[1]]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>selectFrame</command>
-	<target><![CDATA[index=2]]></target>
-	<value><![CDATA[scc_widget_Inbound_Call]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/preceding::input[1]]]></target>
-	<value><![CDATA[${Lead_Email}]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=btnSearch]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Total Records : 0'])[1]/following::span[1]]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=inputFirstName]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=inputFirstName]]></target>
-	<value><![CDATA[${Lead_First Name}]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=inputLastName]]></target>
-	<value><![CDATA[${Lead_Last Name}]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=inputPhone]]></target>
-	<value><![CDATA[${Lead_Phone}]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=inputCompany]]></target>
-	<value><![CDATA[${Lead_Company}]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=companySize]]></target>
-	<value><![CDATA[${Lead_Number of Full Time Employees }]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=numberofDesks]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=numberofDesks]]></target>
-	<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=sel1]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>select</command>
-	<target><![CDATA[id=sel1]]></target>
-	<value><![CDATA[label=${Lead_Lead source}]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=sel1]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[name=autocomplete]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[name=autocomplete]]></target>
-	<value><![CDATA[${Lead_Locations interested}]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[link=MUM-BKC]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='No records found.'])[1]/following::button[1]]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[link=Open]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>selectFrame</command>
-	<target><![CDATA[relative=parent]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>selectFrame</command>
-	<target><![CDATA[index=6]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[css=svg.slds-icon.slds-icon-text-default.slds-icon_x-small]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Availability'])[1]/following::span[1]]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>selectFrame</command>
-	<target><![CDATA[index=1]]></target>
-	<value><![CDATA[frame]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=left-a-voicemail]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=field-comment]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
-<selenese>
-	<command>type</command>
-	<target><![CDATA[id=field-comment]]></target>
-	<value><![CDATA[Test Data]]></value>
-</selenese>
-<selenese>
-	<command>click</command>
-	<target><![CDATA[id=view-save]]></target>
-	<value><![CDATA[]]></value>
-</selenese>
+	<selenese>
+		<command>open</command>
+		<target><![CDATA[https://wework--qaauto.cs30.my.salesforce.com/console]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>loadVars</command>
+		<target><![CDATA[Lead.csv]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Availability'])[1]/following::span[1]]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>selectFrame</command>
+		<target><![CDATA[index=2]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=Lead/ContactSearch:Search:input]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=Lead/ContactSearch:Search:input]]></target>
+		<value><![CDATA[monika]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=Lead/ContactSearch:Search]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=InboundCall:NewLead:caption]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:FirstName:text]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:FirstName:text]]></target>
+		<value><![CDATA[${Lead_First Name}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:LastName:text]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:LastName:text]]></target>
+		<value><![CDATA[${Lead_Last Name}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::div[1]]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:Email:text]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:Email:text]]></target>
+		<value><![CDATA[${Lead_Email}]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:Phone:text]]></target>
+		<value><![CDATA[${Lead_Phone}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:Company:text]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:Company:text]]></target>
+		<value><![CDATA[${Lead_Company}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:CompanySize:number]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:CompanySize:number]]></target>
+		<value><![CDATA[${Lead_Number of Full Time Employees}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:NumberOfDesks:number]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=CreateNewLead:NumberOfDesks:number]]></target>
+		<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:LeadSource:select]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>select</command>
+		<target><![CDATA[id=CreateNewLead:LeadSource:select]]></target>
+		<value><![CDATA[label=${Lead_Lead source}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:LeadSource:select]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[name=autocomplete]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[name=autocomplete]]></target>
+		<value><![CDATA[${Lead_Locations interested}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:Building_Interested_In__c:reference:${Lead_Locations interested}]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=CreateNewLead:Save]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>selectFrame</command>
+		<target><![CDATA[relative=parent]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>selectFrame</command>
+		<target><![CDATA[index=6]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[css=svg.slds-icon.slds-icon-text-default.slds-icon_x-small > use]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=JourneyDetails:MoreActions:Log A Call]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>selectFrame</command>
+		<target><![CDATA[index=1]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=LogACall:LeftAVoicEmail:checkbox]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=LogACall:comment:textarea]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>type</command>
+		<target><![CDATA[id=LogACall:comment:textarea]]></target>
+		<value><![CDATA[testdata]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=LogACall:Save]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>selectFrame</command>
+		<target><![CDATA[relative=parent]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Next Contact Date'])[1]/following::span[2]]]></target>
+		<value><![CDATA[Date.today()]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Outreach Stage'])[1]/following::span[2]]]></target>
+		<value><![CDATA[${Lead_Outreach Stage}]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Journey Status'])[1]/following::span[2]]]></target>
+		<value><![CDATA[Started]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Outreach Result'])[1]/following::span[2]]]></target>
+		<value><![CDATA[${Lead_Outreach Result}]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[id=164:2;a__item]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>click</command>
+		<target><![CDATA[link=Log A Call : ${Lead_Outreach Result}]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=tsk10_ileinner]]></target>
+		<value><![CDATA[Call]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=tsk5_ileinner]]></target>
+		<value><![CDATA[Log A Call : ${Lead_Outreach Result}]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=tsk12_ileinner]]></target>
+		<value><![CDATA[Completed]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=lookupa0jn0000000lh2dtsk3]]></target>
+		<value><![CDATA[${Lead_First Name} ${Lead_Last Name}-${Lead_Locations interested}-${Lead_Lead source}]]></value>
+	</selenese>
+	<selenese>
+		<command>assertText</command>
+		<target><![CDATA[id=CallDisposition_ileinner]]></target>
+		<value><![CDATA[testdata]]></value>
+	</selenese>
 </TestCase>

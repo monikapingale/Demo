@@ -137,7 +137,7 @@
 	</selenese>
 	<selenese>
 		<command>click</command>
-		<target><![CDATA[id=CreateNewLead:Building_Interested_In__c:reference:${Lead_Locations interested}]]></target>
+		<target><![CDATA[id=CreateNewLead:Building_Interested_In__c:reference:LA-Santa Monica]]></target>
 		<value><![CDATA[]]></value>
 	</selenese>
 	<selenese>
