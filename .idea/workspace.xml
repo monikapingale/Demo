@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04fe9f01-0db0-426d-93ad-cc38e5fde702" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +32,8 @@
       <file leaf-file-name="8884.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="283" column="37" lean-forward="true" selection-start-line="283" selection-start-column="37" selection-end-line="283" selection-end-column="37" />
+            <state relative-caret-position="1256">
+              <caret line="302" column="11" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -81,10 +80,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-83" />
-    <option name="y" value="-16" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -169,6 +168,15 @@
               <item name="WeWork~4" type="462c0819:PsiDirectoryNode" />
               <item name="TestSuites" type="462c0819:PsiDirectoryNode" />
               <item name="Sales Console~112" type="462c0819:PsiDirectoryNode" />
+              <item name="TestData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Demo" type="462c0819:PsiDirectoryNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="WeWork~4" type="462c0819:PsiDirectoryNode" />
+              <item name="TestSuites" type="462c0819:PsiDirectoryNode" />
+              <item name="Sales Console~112" type="462c0819:PsiDirectoryNode" />
               <item name="Unqualify~1454" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -183,6 +191,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.scopes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Demo\Projects\WeWork~4\TestSuites\Sales Console~112\TestData" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -228,12 +241,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533647235871</updated>
       <workItem from="1533647237443" duration="3341000" />
-      <workItem from="1534756829588" duration="253000" />
+      <workItem from="1534756829588" duration="3080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3594000" />
+    <option name="totallyTimeSpent" value="6421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -365,10 +378,30 @@
         <state relative-caret-position="-2325" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/.~lock.Lead.csv#">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="53" selection-start-column="53" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Activity.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Activity - Sheet1.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="283" column="37" lean-forward="true" selection-start-line="283" selection-start-column="37" selection-end-line="283" selection-end-column="37" />
+        <state relative-caret-position="1256">
+          <caret line="302" column="11" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
         </state>
       </provider>
     </entry>

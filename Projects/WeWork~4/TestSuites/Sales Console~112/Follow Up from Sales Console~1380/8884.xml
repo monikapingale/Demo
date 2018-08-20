@@ -213,12 +213,12 @@
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Outreach Stage'])[1]/following::span[2]]]></target>
-		<value><![CDATA[Manual Outreach]]></value>
+		<value><![CDATA[label=${Lead_Follow Up After}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[xpath=(.//*[normalize-space(text()) and normalize-space(.)='Next Contact Date'])[1]/following::span[2]]]></target>
-		<value><![CDATA[8/29/2018]]></value>
+		<value><![CDATA[Date.today() + 3]]></value>
 	</selenese>
 	<selenese>
 		<command>click</command>
@@ -233,17 +233,17 @@
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=tsk10_ileinner]]></target>
-		<value><![CDATA[Call]]></value>
+		<value><![CDATA[${FollowUp_Type}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=tsk5_ileinner]]></target>
-		<value><![CDATA[Follow-Up]]></value>
+		<value><![CDATA[${FollowUp_Subject}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=tsk12_ileinner]]></target>
-		<value><![CDATA[Not Started]]></value>
+		<value><![CDATA[${FollowUp_Status}]]></value>
 	</selenese>
 	<selenese>
 		<command>selectFrame</command>
@@ -258,42 +258,42 @@
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=tsk4_ileinner]]></target>
-		<value><![CDATA[8/29/2018]]></value>
+		<value><![CDATA[Date.today() + 3]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=lookupa0jn0000000lgzktsk3]]></target>
-		<value><![CDATA[monika3 pingale3-Santa Monica-Outbound Email/Cold Call]]></value>
+		<value><![CDATA[${Lead_First Name} ${Lead_Last Name}-${Lead_Locations interested}-${Lead_Lead source}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00NF000000CsL9a_ileinner]]></target>
-		<value><![CDATA[Outbound Email/Cold Call]]></value>
+		<value><![CDATA[${Lead_Lead source}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00NF000000CsL9f_ileinner]]></target>
-		<value><![CDATA[Inbound Call Page]]></value>
+		<value><![CDATA[${Lead_Lead source detail}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00NF000000DSUHp_ileinner]]></target>
-		<value><![CDATA[LA-Santa Monica]]></value>
+		<value><![CDATA[${Lead_Locations interested}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00N0G00000DKsrT_ileinner]]></target>
-		<value><![CDATA[500]]></value>
+		<value><![CDATA[${Lead_Number of Full Time Employees}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00N0G00000DKsrS_ileinner]]></target>
-		<value><![CDATA[400]]></value>
+		<value><![CDATA[${Lead_Interested in Number of Desk(s)}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=00NF000000DSUH6_ileinner]]></target>
-		<value><![CDATA[Enzigma]]></value>
+		<value><![CDATA[${Lead_Company}]]></value>
 	</selenese>
 	<selenese>
 		<command>assertText</command>
