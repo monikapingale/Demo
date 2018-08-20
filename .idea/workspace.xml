@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04fe9f01-0db0-426d-93ad-cc38e5fde702" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8881.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8747.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,15 +27,47 @@
       <file leaf-file-name="9922.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Unqualify~1454/9922.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2325" />
+            <state relative-caret-position="-2145" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="8884.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="8803.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Unqualify~1454/8803.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="8884.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1256">
-              <caret line="302" column="11" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
+            <state relative-caret-position="276">
+              <caret line="288" column="37" lean-forward="true" selection-end-line="302" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="8881.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8881.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="236" column="15" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="236" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Lead.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="179" selection-start-line="1" selection-start-column="179" selection-end-line="1" selection-end-column="179" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="8882.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8882.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="156" column="15" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -48,6 +82,8 @@
       <find>rack</find>
       <find>encr</find>
       <find>EnziTestRailUtility</find>
+      <find>Follow</find>
+      <find>today</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -67,6 +103,10 @@
         <option value="$PROJECT_DIR$/App/Gemfile" />
         <option value="$PROJECT_DIR$/App/specHelper.rb" />
         <option value="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml" />
+        <option value="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8747.xml" />
+        <option value="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv" />
+        <option value="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8881.xml" />
+        <option value="$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8882.xml" />
       </list>
     </option>
   </component>
@@ -194,6 +234,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Demo\Projects\WeWork~4\TestSuites\Sales Console~112\Follow Up from Sales Console~1380" />
       <recent name="D:\Projects\Demo\Projects\WeWork~4\TestSuites\Sales Console~112\TestData" />
     </key>
   </component>
@@ -241,12 +282,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533647235871</updated>
       <workItem from="1533647237443" duration="3341000" />
-      <workItem from="1534756829588" duration="3080000" />
+      <workItem from="1534756829588" duration="5062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6421000" />
+    <option name="totallyTimeSpent" value="8403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -373,20 +414,8 @@
     <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Lead Insertion from Inbound Call Page~1347/9922.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Unqualify~1454/9922.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2325" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/.~lock.Lead.csv#">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="53" selection-start-column="53" selection-end-column="65" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Activity.csv">
       <provider selected="true" editor-type-id="text-editor">
@@ -398,10 +427,39 @@
     <entry file="file://$USER_HOME$/Downloads/Activity - Sheet1.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Unqualify~1454/9922.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2145" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Unqualify~1454/8803.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/TestData/Lead.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="179" selection-start-line="1" selection-start-column="179" selection-end-line="1" selection-end-column="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8881.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="236" column="15" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="236" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8884.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1256">
-          <caret line="302" column="11" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
+        <state relative-caret-position="276">
+          <caret line="288" column="37" lean-forward="true" selection-end-line="302" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/WeWork~4/TestSuites/Sales Console~112/Follow Up from Sales Console~1380/8882.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="156" column="15" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="15" />
         </state>
       </provider>
     </entry>
