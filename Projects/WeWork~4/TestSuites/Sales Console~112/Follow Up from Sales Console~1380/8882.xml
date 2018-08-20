@@ -211,6 +211,11 @@
 		<value><![CDATA[]]></value>
 	</selenese>
 	<selenese>
+		<command>loadVars</command>
+		<target><![CDATA[Activity.csv]]></target>
+		<value><![CDATA[]]></value>
+	</selenese>
+	<selenese>
 		<command>assertText</command>
 		<target><![CDATA[id=tsk10_ileinner]]></target>
 		<value><![CDATA[${FollowUp_Type}]]></value>
