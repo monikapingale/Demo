@@ -40,6 +40,7 @@ module EnziTestRailUtility
     end
 
     def createRuns(profile, runs)
+      puts "in create Runs"
       runs1 = Marshal.load(Marshal.dump(runs))
       runs1.each do |run|
         run.store('profile', profile)
@@ -211,10 +212,7 @@ module EnziTestRailUtility
     #3  Untested (not allowed when adding a result)
     #4  Retest
     #5  Failed
-    def postResult(caseId, comment, statusId, testRunId)\
-      puts "***************************************"
-      puts comment
-      puts "***************************************"
+    def postResult(caseId, comment, statusId, testRunId)
       url = "add_result_for_case/#{testRunId}/#{caseId}"
       @client.send_post(url, {:status_id => statusId, :comment => "#{comment}"})
     end
@@ -338,4 +336,5 @@ module EnziTestRailUtility
       @client.send_get("get_test/#{testId}")
     end
   end
-end
+    end
+      
